@@ -1,15 +1,14 @@
 body {
     font-family: 'Roboto', sans-serif;
     text-align: center;
-    background: linear-gradient( rgba(34, 7, 54, 1) 0%, rgba(10, 14, 94, 1) 100%);
+    background: linear-gradient(rgb(255, 255, 255) 0%, rgb(173, 173, 173) 100%);
     color: white;
 }
 
 h1 {
     font-size: 3em;
-    color: #ff3ec9;
-    text-shadow: 2px 2px #000;
-    margin-bottom: 30px;
+    color: #263F45;
+    margin-bottom: 20px;
 }
 
 .container {
@@ -25,28 +24,32 @@ h1 {
     max-width: 320px;
     height: 540px;
     cursor: pointer;
+    border: 2px solid #263F45;
+    border-radius: 15px;
+    overflow: hidden;
+    background-color: rgba(231, 231, 231, 0.7);
+    color: #1a191a;
+    transform-style: preserve-3d;
+    transition: transform 2s; 
 }
+
 
 .card-inner {
     position: relative;
     width: 100%;
-    height: 400px;
+    height: 100%;
     text-align: center;
     transition: transform 2s;
     transform-style: preserve-3d;
+    
 }
+
 
 .card-front, .card-back {
     position: absolute;
     width: 100%;
     height: 100%;
     backface-visibility: hidden;
-    border: 4px solid #ff3ec9;
-    border-radius: 15px;
-    background-color: rgba(231, 231, 231, 0.7);
-    color: #1a191a;
-    font-size: 18px;
-    text-shadow: 1px 1px #000;
 }
 
 .card-front {
@@ -60,25 +63,44 @@ h1 {
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: transparent; 
+    color: transparent; 
+    visibility: hidden; 
 }
 
-.card.flipped .card-inner {
+.card.flipped .card-back {
+    visibility: visible; 
+    background-color: transparent; 
+    color: transparent; 
+}
+
+
+.card.flipped  {
     transform: rotateY(180deg);
+    transform-style: preserve-3d;
 }
 
 .name {
     font-size: 1.5rem;
     word-break:normal;
+    border-bottom: solid #263F45;
+    margin: 0.8rem;
 }
 
 .profilePic {
     width: 125px;
     align-self: center;
+    border-radius: 50%;
+    margin-top: 20px;
+    background-color: beige; 
 }
+
 
 .promo {
     font-size: 1rem;
-    color: #ff3ec9;
+    color: #263F45;
+    border-top: solid #263F45 ;
+    padding: 10px;
 }
 
 .skills {
@@ -96,10 +118,11 @@ h1 {
     font-size: 0.8em;
 }
 
-.links img{
+.links img {
     width: 32px;
     height: 32px;
 }
+
 .links a {
     display: inline-block;
     text-decoration: none;
@@ -110,4 +133,25 @@ h1 {
 
 .excerpt {
     font-size: 11px;
+    padding: 10px;
+}
+
+.red {
+    background-color: red;
+}
+
+.blue {
+    background-color: blue;
+}
+
+.yellow {
+    background-color: yellow;
+}
+
+.green {
+    background-color: green;
+}
+
+.gray {
+    background-color: gray; 
 }
