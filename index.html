@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,8 +7,31 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Trombinoscope des Apprenants</h1>
-    <img src="\Trombinoscope\assets\logos\logoGreta.png" alt="logo GRETA" class="logoGreta">
+    <header>
+        <h1>Trombinoscope des Apprenants</h1>
+        <img src="https://icongr.am/clarity/filter-2.svg?size=30&color=currentColor" alt="">
+    </header>
+    <section id="search-box">
+        <select id="dropdown" class="dropdown">
+            <option value="all">Promotion</option>
+            <option value="2">2024 / 2025</option>
+            <option value="7">2023 / 2024</option>
+            <option value="8">2022 / 2023</option>
+        </select>
+        <input type="text" id="search" placeholder="Rechercher..." class="search">
+        <div class="tag-container" id="tags">
+            <button class="tags" id="tag-9">Html5</button>
+            <button class="tags" id="tag-10">Css3</button>
+            <button class="tags" id="tag-18">Tailwind</button>
+            <button class="tags" id="tag-17">Bootstrap</button>
+            <button class="tags" id="tag-15">Figma</button>
+            <button class="tags" id="tag-12">JavaScript</button>
+            <button class="tags" id="tag-14">Vue.js</button>
+            <button class="tags" id="tag-11">PHP</button>
+            <button class="tags" id="tag-13">Symfony</button>
+            <button class="tags" id="tag-16">C#</button>
+        </div>
+    </section>
     <div class="container" id="apprenants-container"></div>
     <script src="scripts.js"></script>
 </body>
