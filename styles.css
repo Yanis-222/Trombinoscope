@@ -36,7 +36,6 @@ h1 {
 .card {
     perspective: 560px;
     width: 100%;
-
     height: 540px;
     cursor: pointer;
     border: 2px solid #263F45;
@@ -75,17 +74,24 @@ h1 {
 
 .card-back {
     transform: rotateY(180deg);
-    background-color: rgba(231, 231, 231, 0.7); 
+    background-color: bisque; 
     backface-visibility: hidden;
-}
-
-.card-back p {
-    max-width: 90%; 
+    height: auto;
+    width: auto;
+    padding: 1rem;
+    margin: 0.7rem 1rem 0.5rem 1rem;
+    border: solid 2px black;
+    border-radius: 0.5rem;
+    display: grid;
+    place-items: center;
+    
 }
 
 .card-back * {
     transform: rotateY(180deg);
 }
+
+
 
 
 .card.flipped .card-inner {
@@ -103,7 +109,6 @@ transform: rotateY(180deg);
     font-size: 1.45rem;
     word-break:normal;
     margin: 0.8rem;
-    padding:rem;
     border-bottom: solid black;
 }
 
@@ -172,10 +177,6 @@ transform: rotateY(180deg);
     transition: background-color 0.3s;
 }
 
-.excerpt {
-    font-size: 11px;
-    padding: 10px;
-}
 
 .container-image{
     background-color: bisque;
