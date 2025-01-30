@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         .then(promotions => {
             const promotionMap = {};
             promotions.forEach(promotion => {
-                promotionMap[promotion.id] = promotion.slug;
+                promotionMap[promotion.id] = promotion.name;
             });
 
             fetch('http://portfolios.ruki5964.odns.fr/wp-json/wp/v2/competences')
@@ -55,10 +55,14 @@ document.addEventListener('DOMContentLoaded', (event) => {
                                             <p class="promo">Promotion: ${promotionName}</p>
                                             <div class = "container-skill"><p class="skills">${competencesElements.join('')}</p></div>
                                             <div class="links">
-                                                <a href="${apprenant.urlgit}" target="_blank"><img src="assets/icones/logoGithub.svg"></a>
-                                                <a href="${apprenant.linkedin}" target="_blank"><img src="assets/icones/logoLinkedin.svg"></a>
-                                                <a href="${apprenant.cv}" target="_blank"><img src="assets/icones/logoCV.svg"></a>
-                                                <a href="${apprenant.portfolio}" target="_blank"><img src="assets/icones/logoPortfolio.svg"></a>
+                                                <a href="${apprenant.urlgit}" target="_blank" onclick="event.stopPropagation();">
+                                                <img src="assets/icones/logoGithub.svg"></a>
+                                                <a href="${apprenant.linkedin}" target="_blank" onclick="event.stopPropagation();">
+                                                <img src="assets/icones/logoLinkedin.svg"></a>
+                                                <a href="${apprenant.cv}" target="_blank" onclick="event.stopPropagation();">
+                                                <img src="assets/icones/logoCV.svg"></a>
+                                                <a href="${apprenant.portfolio}" target="_blank" onclick="event.stopPropagation();">
+                                                <img src="assets/icones/logoPortfolio.svg"></a>
                                             </div>
                                         </div>
                                         <div class="card-back">
