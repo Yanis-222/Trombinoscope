@@ -1,7 +1,11 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
 body {
     font-family: 'Roboto', sans-serif;
     text-align: center;
-    background: linear-gradient(rgb(255, 255, 255) 0%, rgb(173, 173, 173) 100%);
     color: white;
 }
 
@@ -9,6 +13,7 @@ h1 {
     font-size: 3em;
     color: #263F45;
     margin-bottom: 20px;
+
 }
 
 .container {
@@ -21,7 +26,7 @@ h1 {
 .card {
     perspective: 560px;
     width: 100%;
-    max-width: 320px;
+
     height: 540px;
     cursor: pointer;
     border: 2px solid #263F45;
@@ -41,7 +46,7 @@ h1 {
     text-align: center;
     transition: transform 2s;
     transform-style: preserve-3d;
-    
+    backface-visibility: hidden; 
 }
 
 
@@ -49,7 +54,7 @@ h1 {
     position: absolute;
     width: 100%;
     height: 100%;
-    backface-visibility: hidden;
+    backface-visibility: hidden,;
 }
 
 .card-front {
@@ -60,19 +65,23 @@ h1 {
 
 .card-back {
     transform: rotateY(180deg);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: transparent; 
-    color: transparent; 
-    visibility: hidden; 
+    background-color: rgba(231, 231, 231, 0.7); 
+    backface-visibility: hidden;
 }
 
-.card.flipped .card-back {
-    visibility: visible; 
-    background-color: transparent; 
-    color: transparent; 
+.card-back p {
+    max-width: 90%; 
 }
+
+.card-back * {
+    transform: rotateY(180deg);
+}
+
+
+.card.flipped .card-inner {
+transform: rotateY(180deg);
+}
+
 
 
 .card.flipped  {
@@ -81,10 +90,11 @@ h1 {
 }
 
 .name {
-    font-size: 1.5rem;
+    font-size: 1.45rem;
     word-break:normal;
-    border-bottom: solid #263F45;
     margin: 0.8rem;
+    padding:rem;
+    border-bottom: solid black;
 }
 
 .profilePic {
@@ -92,15 +102,15 @@ h1 {
     align-self: center;
     border-radius: 50%;
     margin-top: 20px;
-    background-color: beige; 
 }
 
 
 .promo {
     font-size: 1rem;
     color: #263F45;
-    border-top: solid #263F45 ;
-    padding: 10px;
+    margin: 0.8rem;
+    padding: 1rem;
+    border-bottom: solid black;
 }
 
 .skills {
@@ -110,12 +120,18 @@ h1 {
 }
 
 .skill {
-    background-color: #ff3ec9;
     color: #000;
     border-radius: 5px;
     padding: 5px 10px;
     margin: 5px;
     font-size: 0.8em;
+    font-style: oblique;
+    font-weight: bold;
+
+}
+
+.container-skill{
+    height: 6rem;
 }
 
 .links img {
@@ -136,22 +152,36 @@ h1 {
     padding: 10px;
 }
 
+.container-image{
+    background-color: bisque;
+    border-width: 3px;
+    margin-top: -2.75rem;
+
+}
+
 .red {
-    background-color: red;
+    background-color: #ff6961;
 }
 
 .blue {
-    background-color: blue;
+    background-color: #ADD8E6;
 }
 
 .yellow {
-    background-color: yellow;
+    background-color: #FFFFE0;
 }
 
 .green {
-    background-color: green;
+    background-color: #C6E5B1;
 }
 
 .gray {
     background-color: gray; 
+}
+.pink{
+    background-color: pink;
+}
+
+.purple{
+    background-color: #904B7B;
 }
