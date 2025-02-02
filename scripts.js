@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 // Définition d'un objet pour assigner des couleurs aux compétences
 const skillColors = {
     "bootstrap": "blue",
@@ -35,10 +36,33 @@ document.addEventListener('DOMContentLoaded', (event) => {
             fetch('https://api-trombi.webedy.fr/wp-json/wp/v2/promotions').then(response => response.json()),
             fetch('https://api-trombi.webedy.fr/wp-json/wp/v2/competences').then(response => response.json())
         ]).then(([promotions, competences]) => {
+=======
+const skillColors = {
+    "bootstrap": "red",
+    "html5": "red",
+    "symfony": "red",
+    "css3": "blue",
+    "javascript": "blue",
+    "vue.js": "blue",
+    "figma": "yellow",
+    "php": "yellow",
+    "c#": "green",
+    "tailwind": "green"
+};
+
+document.addEventListener('DOMContentLoaded', (event) => {
+    const apprenantsContainer = document.getElementById('apprenants-container');
+
+    fetch('http://portfolios.ruki5964.odns.fr/wp-json/wp/v2/promotions')
+        .then(response => response.json())
+        .then(promotions => {
+            const promotionMap = {};
+>>>>>>> Stashed changes
             promotions.forEach(promotion => {
                 promotionMap[promotion.id] = promotion.name;
             });
 
+<<<<<<< Updated upstream
             competences.forEach(competence => {
                 competencesMap[competence.id] = competence.name;
             });
@@ -84,6 +108,40 @@ document.addEventListener('DOMContentLoaded', (event) => {
                                             <div class="container-image"><img class="profilePic" src="${apprenant.image}"></div>
                                             <p class="promo">Promotion: ${promotionName}</p>
                                             <div class = "container-skill"><p class="skills">${competencesElements.join('')}</p></div>
+=======
+            fetch('http://portfolios.ruki5964.odns.fr/wp-json/wp/v2/competences')
+                .then(response => response.json())
+                .then(competences => {
+                    const competencesMap = {};
+                    competences.forEach(competence => {
+                        competencesMap[competence.id] = competence.name;
+                    });
+
+                    fetch('http://portfolios.ruki5964.odns.fr/wp-json/wp/v2/apprenants?per_page=100')
+                        .then(response => response.json())
+                        .then(apprenants => {
+                            apprenants.forEach(apprenant => {
+                                const promotionId = apprenant.promotions[0];
+                                const promotionName = promotionMap[promotionId] || 'Unknown';
+
+                                const competencesElements = apprenant.competences.map(skillId => {
+                                    const skillName = competencesMap[skillId] || 'Unknown';
+                                    const colorClass = skillColors[skillName.toLowerCase()] || 'gray';
+                                    return `<span class="skill ${colorClass}">${skillName}</span>`;
+                                });
+
+                                const card = document.createElement('div');
+                                card.className = 'card';
+                                card.setAttribute('onclick', 'flipCard(this)');
+
+                                card.innerHTML = `
+                                    <div class="card-inner">
+                                        <div class="card-front">
+                                            <h2 class="name">${apprenant.nom}<br>${apprenant.prenom}</h2>
+                                            <img class="profilePic" src="${apprenant.image}"/>
+                                            <p class="promo" data-promotion-id="${promotionId}">Promotion: ${promotionName}</p>
+                                            <p class="skills">${competencesElements.join('')}</p>
+>>>>>>> Stashed changes
                                             <div class="links">
                                                 <a href="${apprenant.urlgit}" target="_blank" onclick="event.stopPropagation();">
                                                 <img src="assets/icones/logoGithub.svg"></a>
@@ -106,6 +164,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
             .catch(error => console.error('Erreur:', error));
     };
 
+<<<<<<< Updated upstream
     // Récupération initiale des promotions et compétences, puis des apprenants
     fetchPromotionsAndCompetences().then(() => {
         fetchApprenants(); // Affiche tous les apprenants par défaut
@@ -153,6 +212,21 @@ document.addEventListener('DOMContentLoaded', (event) => {
 });
 
 // Fonction pour retourner la carte lors du clic
+=======
+                                apprenantsContainer.appendChild(card);
+                            });
+
+                            document.getElementById('dropdown').addEventListener('change', filterCards);
+                            document.getElementById('search').addEventListener('input', filterCards);
+                        })
+                        .catch(error => console.error('Erreur:', error));
+                })
+                .catch(error => console.error('Erreur:', error));
+        })
+        .catch(error => console.error('Erreur:', error));
+});
+
+>>>>>>> Stashed changes
 function flipCard(card) {
     card.classList.toggle('flipped');
 }
